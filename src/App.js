@@ -1,20 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
+import Game from "./components/game";
 
 function App() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
       <div className="app">
@@ -22,7 +10,7 @@ function App() {
           <h1>Weather Game</h1>
         </header>
         <main className="main">
-          <p>Window Width: {windowWidth}px</p>
+          <Game />
         </main>
         <footer className="footer">
           <p>© 2023 Weather Game App</p>
