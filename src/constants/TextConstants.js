@@ -5,6 +5,12 @@ const TextConstants = {
     },
     ANSWERS_LIST: {
         YOUR_ANSWERS: 'Your Answers:'
+    },
+    FOOTER: {
+        WEATHER_GAME_APP: '© 2023 Weather Game App'
+    },
+    HEADER: {
+        HEADER_TITLE: 'Weather Game'
     }
 }
 
