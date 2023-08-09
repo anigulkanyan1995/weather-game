@@ -1,9 +1,10 @@
 import React from 'react';
+import TextConstants from "../../constants/TextConstants";
 
 const AnswersList = () => {
     return (
         <div>
-            <h2>Your Answers:</h2>
+            <h2>{TextConstants.ANSWERS_LIST.YOUR_ANSWERS}</h2>
 
         </div>
     );

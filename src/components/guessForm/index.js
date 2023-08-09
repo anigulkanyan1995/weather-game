@@ -1,4 +1,5 @@
 import React from 'react';
+import TextConstants from "../../constants/TextConstants";
 
 const GuessForm = () => {
 
@@ -6,10 +7,10 @@ const GuessForm = () => {
         <form>
             <input
                 type="number"
-                placeholder="Enter your guess"
+                placeholder={TextConstants.GUESS_FORM.ENTER_YOUR_GUESS}
             />
             <button type="submit" >
-                Submit Guess
+                {TextConstants.GUESS_FORM.SUBMIT_GUESS}
             </button>
         </form>
     );
