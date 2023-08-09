@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import GuessForm from '../guessForm';
 import AnswersList from '../answersList';
+import TextConstants from "../../constants/TextConstants";
 interface ICityData {
     cityName: string;
     temperature: number;
@@ -22,10 +23,10 @@ const Game = () => {
                     cityName: data.name,
                 });
             } else {
-                console.error('Failed to fetch data from the API');
+                console.error(TextConstants.ERRORS.FETCHING_ERROR);
             }
         } catch (error) {
-            console.error('Error', error);
+            console.error(TextConstants.ERRORS.ERROR, error);
         }
     };
 

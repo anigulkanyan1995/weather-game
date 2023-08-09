@@ -11,6 +11,10 @@ const TextConstants = {
     },
     HEADER: {
         HEADER_TITLE: 'Weather Game'
+    },
+    ERRORS: {
+        FETCHING_ERROR: 'Failed to fetch data from the API',
+        ERROR: 'Error'
     }
 }
 
