@@ -1,22 +1,8 @@
 import React from 'react';
 import TextConstants from "../../constants/TextConstants";
+import {IAnswersListProps} from "../../types/types";
 
-interface ICity {
-    name: string;
-    actualTemp: number | null;
-}
-
-interface IUserAnswer {
-    userGuess: number;
-    actualTemp: number | null;
-}
-
-interface AnswersListProps {
-    userAnswers: IUserAnswer[];
-    cities: ICity[];
-}
-
-const AnswersList: React.FC<AnswersListProps> = ({ userAnswers, cities }) => {
+const AnswersList: React.FC<IAnswersListProps> = ({ userAnswers, cities }) => {
     return (
         <div>
             <h2>{TextConstants.ANSWERS_LIST.YOUR_ANSWERS}</h2>

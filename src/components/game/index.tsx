@@ -2,16 +2,7 @@ import React, { useState } from 'react';
 import AnswersList from '../answersList';
 import TextConstants from "../../constants/TextConstants";
 import GuessForm from "../guessForm";
-
-interface ICity {
-    name: string;
-    actualTemp: number | null;
-}
-
-interface IUserAnswer {
-    userGuess: number;
-    actualTemp: number | null;
-}
+import {ICity, IUserAnswer} from "../../types/types";
 
 const Game = () => {
     const apiKey = 'b355db3a8217ae32abe405b8021b20a5';

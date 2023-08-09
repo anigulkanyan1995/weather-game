@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import TextConstants from "../../constants/TextConstants";
+import {IGuessFormProps} from "../../types/types";
 
-interface GuessFormProps {
-    onGuess: (guess: number) => void;
-}
-
-const GuessForm: React.FC<GuessFormProps> = ({ onGuess }) => {
+const GuessForm: React.FC<IGuessFormProps> = ({ onGuess }) => {
     const [guess, setGuess] = useState<number | ''>('');
 
     const handleSubmit = (e: React.FormEvent) => {
