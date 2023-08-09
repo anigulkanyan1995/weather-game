@@ -1,6 +1,5 @@
 import React from 'react';
 import TextConstants from "../../constants/TextConstants";
-
 const GuessForm = () => {
 
     return (

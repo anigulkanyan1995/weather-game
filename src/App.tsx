@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Game from "./components/game";
 import TextConstants from "./constants/TextConstants";
-
 function App() {
 
   return (
