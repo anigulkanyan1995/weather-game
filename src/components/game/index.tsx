@@ -3,23 +3,17 @@ import AnswersList from '../answersList';
 import TextConstants from "../../constants/TextConstants";
 import GuessForm from "../guessForm";
 import {ICity, IUserAnswer} from "../../types/types";
+import Endpoints from "../../constants/EndPoinds";
+import {initialCities} from "../../constants/HardCodedData";
 
 const Game = () => {
-    const apiKey = 'b355db3a8217ae32abe405b8021b20a5';
-    const initialCities: ICity[] = [
-        { name: 'London', actualTemp: null },
-        { name: 'New York', actualTemp: null },
-        { name: 'Tokyo', actualTemp: null },
-        { name: 'Paris', actualTemp: null },
-        { name: 'Sydney', actualTemp: null },
-    ];
     const [cities, setCities] = useState<ICity[]>(initialCities);
     const [userAnswers, setUserAnswers] = useState<IUserAnswer[]>([]);
 
     const fetchCityData = async (cityName: string) => {
         try {
             const response = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`
+                `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${Endpoints.API_KEY}`
             );
             if (response.ok) {
                 const data = await response.json();
@@ -36,6 +30,7 @@ const Game = () => {
         }
     };
 
+    console.log(cities, 'cities')
     const handleGuess = async (guess: number, cityIndex: number) => {
         if (userAnswers.length < 5) {
             await fetchCityData(cities[cityIndex].name);
