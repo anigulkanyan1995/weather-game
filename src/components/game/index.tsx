@@ -5,7 +5,7 @@ import GuessForm from "../guessForm";
 import {ICity, IUserAnswer} from "../../types/types";
 import Endpoints from "../../constants/EndPoinds";
 import {initialCities} from "../../constants/HardCodedData";
-
+import './styles.scss'
 const Game = () => {
     const [cities, setCities] = useState<ICity[]>(initialCities);
     const [userAnswers, setUserAnswers] = useState<IUserAnswer[]>([]);
@@ -42,8 +42,9 @@ const Game = () => {
     };
 
     return (
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-            <div>
+        <div className="gameContainer">
+            <div className="guessFormContainer">
+                <h2>{TextConstants.GUESS_FORM.GUESS_TITLE}</h2>
                 {cities.map((city, index) => (
                     <div key={index}>
                         <h3>{city.name}</h3>
@@ -52,11 +53,12 @@ const Game = () => {
                     </div>
                 ))}
             </div>
-            <div>
+            <div className="answerListContainer">
                 <AnswersList userAnswers={userAnswers} cities={cities} />
             </div>
         </div>
-    );
+
+);
 };
 
 export default Game;

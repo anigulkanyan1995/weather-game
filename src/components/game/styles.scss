@@ -1,0 +1,21 @@
+.gameContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px;
+
+  & > div {
+    flex: 0 0 calc(50% - 30px);
+    margin-bottom: 30px;
+  }
+}
+
+.answerListContainer {
+  flex: 0 0 calc(50% - 30px);
+  margin-bottom: 20px
+}
+
+.guessFormContainer {
+  flex: 0 0 calc(50% - 30px);
+  margin-bottom: 20px
+}
