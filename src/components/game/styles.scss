@@ -30,7 +30,14 @@
 }
 
 .answerListContainer {
-  margin-bottom: 20px
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .answerListContainer {
+    margin-left: 0;
+  }
 }
 
 .guessFormContainer {
@@ -39,6 +46,13 @@
   border: 0.5px solid black;
   border-radius: 4px;
   padding: 20px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .guessFormContainer {
+    margin-right: 0;
+  }
 }
 
 .flex-container {
