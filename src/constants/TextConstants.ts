@@ -23,6 +23,9 @@ const TextConstants = {
     },
     GAME_OVER: {
             GAME_OVER: 'Sorry, you lost. Better luck next time.'
+    },
+    RESULT: {
+        RESULT: 'Result'
     }
 }
 

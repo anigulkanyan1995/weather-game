@@ -1,6 +1,7 @@
 import React from 'react';
 import { IResultBoxProps } from '../../types/types';
 import TextConstants from '../../constants/TextConstants';
+import './styles.scss'
 
 const ResultBox: React.FC<IResultBoxProps> = ({ userAnswers }) => {
     const correctGuesses = userAnswers.filter(
@@ -17,16 +18,19 @@ const ResultBox: React.FC<IResultBoxProps> = ({ userAnswers }) => {
 
     return (
         <div className="resultBox">
-            <h2>Result</h2>
+            <h2>{TextConstants.RESULT.RESULT}</h2>
             <p className={guessedCount >= 3 ? 'resultBoxCongratulations' : 'resultBoxGameOver'}>
                 {resultMessage}
             </p>
             <div className="answerList">
-                <h3>Your Answers:</h3>
+                <h3>{TextConstants.ANSWERS_LIST.YOUR_ANSWERS}</h3>
                 {userAnswers.map((answer, index) => (
                     <div key={index}>
-                        <p>Your Guess: {answer.userGuess}°C</p>
-                        <p className={answer.actualTemp !== null ? guessedCount >= 3 ? 'resultBoxCongratulations' : 'resultBoxGameOver' : ''}>
+                        <p>{TextConstants.GUESS_FORM.YOUR_GUESS} {answer.userGuess}°C</p>
+                        <p className={answer.actualTemp !== null ? guessedCount >= 3 ?
+                            'resultBoxCongratulations' :
+                            'resultBoxGameOver' : ''}
+                        >
                             Actual Temperature:{' '}
                             {answer.actualTemp !== null
                                 ? `${answer.actualTemp}°C`

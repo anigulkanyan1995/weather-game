@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TextConstants from '../../constants/TextConstants';
 import { IGuessFormProps } from '../../types/types';
-
+import './styles.scss'
 const GuessForm: React.FC<IGuessFormProps> = ({ onGuess }) => {
     const [guess, setGuess] = useState<number | ''>('');
     const [submittedGuess, setSubmittedGuess] = useState<number | ''>('');
@@ -24,7 +24,9 @@ const GuessForm: React.FC<IGuessFormProps> = ({ onGuess }) => {
                 onChange={(e) => setGuess(Number(e.target.value))}
                 disabled={submittedGuess !== ''}
             />
-            <button type="submit" disabled={submittedGuess !== ''} style={{marginLeft: '20px'}}>
+            <button type="submit" disabled={submittedGuess !== ''}
+                    className='submitButton'
+            >
                 {TextConstants.GUESS_FORM.SUBMIT_GUESS}
             </button>
         </form>

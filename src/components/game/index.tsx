@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import AnswersList from '../answersList';
 import TextConstants from '../../constants/TextConstants';
 import GuessForm from '../guessForm';
@@ -42,10 +42,6 @@ const Game = () => {
             console.error(TextConstants.ERRORS.ERROR, error);
         }
     };
-
-    useEffect(() => {
-        console.log(userAnswers, 'hhh');
-    }, [userAnswers]);
 
     return (
         <div className={userAnswers.length === 5 ? 'resultContainer' : 'gameContainer'}>
