@@ -2,7 +2,8 @@ const TextConstants = {
     GUESS_FORM: {
       GUESS_TITLE: 'Guess The Temperature',
       ENTER_YOUR_GUESS: 'Enter your guess',
-      SUBMIT_GUESS: 'Submit Guess'
+      SUBMIT_GUESS: 'Submit Guess',
+      YOUR_GUESS: 'Your Guess:'
     },
     ANSWERS_LIST: {
         YOUR_ANSWERS: 'Your Answers:'

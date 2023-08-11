@@ -1,5 +1,5 @@
 import React from 'react';
-import {IResultBoxProps} from '../../types/types';
+import { IResultBoxProps } from '../../types/types';
 import TextConstants from '../../constants/TextConstants';
 
 const ResultBox: React.FC<IResultBoxProps> = ({ userAnswers }) => {
@@ -18,20 +18,22 @@ const ResultBox: React.FC<IResultBoxProps> = ({ userAnswers }) => {
     return (
         <div className="resultBox">
             <h2>Result</h2>
-            <p>{resultMessage}</p>
+            <p className={guessedCount >= 3 ? 'resultBoxCongratulations' : 'resultBoxGameOver'}>
+                {resultMessage}
+            </p>
             <div className="answerList">
                 <h3>Your Answers:</h3>
-                <ul>
-                    {userAnswers.map((answer, index) => (
-                        <li key={index}>
-                            Your Guess: {answer.userGuess}°C&nbsp;&nbsp;
+                {userAnswers.map((answer, index) => (
+                    <div key={index}>
+                        <p>Your Guess: {answer.userGuess}°C</p>
+                        <p className={answer.actualTemp !== null ? guessedCount >= 3 ? 'resultBoxCongratulations' : 'resultBoxGameOver' : ''}>
                             Actual Temperature:{' '}
                             {answer.actualTemp !== null
                                 ? `${answer.actualTemp}°C`
                                 : '---'}
-                        </li>
-                    ))}
-                </ul>
+                        </p>
+                    </div>
+                ))}
             </div>
         </div>
     );

@@ -24,7 +24,7 @@ const GuessForm: React.FC<IGuessFormProps> = ({ onGuess }) => {
                 onChange={(e) => setGuess(Number(e.target.value))}
                 disabled={submittedGuess !== ''}
             />
-            <button type="submit" disabled={submittedGuess !== ''}>
+            <button type="submit" disabled={submittedGuess !== ''} style={{marginLeft: '20px'}}>
                 {TextConstants.GUESS_FORM.SUBMIT_GUESS}
             </button>
         </form>
