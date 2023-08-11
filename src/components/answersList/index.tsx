@@ -4,18 +4,22 @@ import {IAnswersListProps} from "../../types/types";
 import './styles.scss';
 
 const AnswersList: React.FC<IAnswersListProps> = ({ userAnswers, cities }) => {
+
     return (
         <div className='answerList'>
             <h2>{TextConstants.ANSWERS_LIST.YOUR_ANSWERS}</h2>
-            {cities.map((city, index) => (
-                <div key={index}>
-                    <h3>{city.name}</h3>
-                    <p>Actual Temperature: {city.actualTemp !== null ? `${city.actualTemp}°C` : '---'}</p>
-                    {userAnswers[index] && (
-                        <p>{TextConstants.GUESS_FORM.YOUR_GUESS} {userAnswers[index].userGuess}°C</p>
-                    )}
-                </div>
-            ))}
+            {cities.map((city) => {
+                const userAnswer = userAnswers.find((answer) => answer.id === city.id);
+                return (
+                    <div key={city.id}>
+                        <h3>{city.name}</h3>
+                        <p>Actual Temperature: {city.actualTemp !== null ? `${city.actualTemp}°C` : '---'}</p>
+                        {userAnswer && (
+                            <p>{TextConstants.GUESS_FORM.YOUR_GUESS} {userAnswer.userGuess}°C</p>
+                        )}
+                    </div>
+                );
+            })}
         </div>
     );
 };

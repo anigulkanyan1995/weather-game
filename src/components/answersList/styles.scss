@@ -1,9 +1,10 @@
 .answerList {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: self-start;
   flex-direction: column;
   background-color: #FFEEBB;
   border: 0.5px solid black;
   border-radius: 4px;
+  padding: 20px;
 }

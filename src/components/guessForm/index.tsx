@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TextConstants from '../../constants/TextConstants';
 import { IGuessFormProps } from '../../types/types';
 import './styles.scss'
+
 const GuessForm: React.FC<IGuessFormProps> = ({ onGuess }) => {
     const [guess, setGuess] = useState<number | ''>('');
     const [submittedGuess, setSubmittedGuess] = useState<number | ''>('');

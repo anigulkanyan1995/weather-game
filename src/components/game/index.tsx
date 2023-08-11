@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
-import AnswersList from '../answersList';
-import TextConstants from '../../constants/TextConstants';
-import GuessForm from '../guessForm';
-import { ICity, IUserAnswer } from '../../types/types';
-import Endpoints from '../../constants/EndPoinds';
-import { initialCities } from '../../constants/HardCodedData';
-import './styles.scss';
-import ResultBox from '../resultBox';
+import {initialCities} from "../../constants/HardCodedData";
+import {useState} from "react";
+import {ICity, IUserAnswer} from "../../types/types";
+import Endpoints from "../../constants/EndPoinds";
+import TextConstants from "../../constants/TextConstants";
+import ResultBox from "../resultBox";
+import AnswersList from "../answersList";
+import GuessForm from "../guessForm";
+import './styles.scss'
 
 const Game = () => {
-    const [cities, setCities] = useState<ICity[]>(initialCities);
+    const shuffledCities = initialCities.sort(() => Math.random() - 0.5).slice(0, 5);
+    const [cities, setCities] = useState<ICity[]>(shuffledCities);
     const [userAnswers, setUserAnswers] = useState<IUserAnswer[]>([]);
 
-    const handleGuess = async (guess: number, cityIndex: number) => {
+    const handleGuess = async (guess: number, cityId: string) => {
         if (userAnswers.length < 5) {
-            await fetchCityData(cities[cityIndex].name, guess);
+            await fetchCityData(cities.find(city => city.id === cityId)!.name, guess, cityId);
         }
     };
 
-    const fetchCityData = async (cityName: string, guess: number) => {
+    const fetchCityData = async (cityName: string, guess: number, cityId: string) => {
         try {
             const response = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${Endpoints.API_KEY}`
@@ -27,13 +28,13 @@ const Game = () => {
                 const data = await response.json();
                 setCities((prevCities) =>
                     prevCities.map((city) =>
-                        city.name === cityName ? { ...city, actualTemp: data.main.temp } : city
+                        city.id === cityId ? { ...city, actualTemp: data.main.temp } : city
                     )
                 );
 
-                setUserAnswers((prevAnswers) => [
+                setUserAnswers((prevAnswers: any) => [
                     ...prevAnswers,
-                    { userGuess: guess, actualTemp: data.main.temp },
+                    { id: cityId, userGuess: guess, actualTemp: data.main.temp },
                 ]);
             } else {
                 console.error(TextConstants.ERRORS.FETCHING_ERROR);
@@ -51,12 +52,12 @@ const Game = () => {
                 <div>
                     <div className="guessFormContainer">
                         <h2>{TextConstants.GUESS_FORM.GUESS_TITLE}</h2>
-                        {cities.map((city, index) => (
-                            <div key={index}>
+                        {cities.map((city) => (
+                            <div key={city.id}>
                                 <h3>{city.name}</h3>
                                 <GuessForm
                                     onGuess={(guess: number) =>
-                                        handleGuess(guess, index)
+                                        handleGuess(guess, city.id)
                                     }
                                 />
                             </div>

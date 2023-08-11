@@ -1,9 +1,11 @@
 export interface ICity {
+    id: string;
     name: string;
     actualTemp: number | null;
 }
 
 export interface IUserAnswer {
+    id: string;
     userGuess: number;
     actualTemp: number | null;
 }
