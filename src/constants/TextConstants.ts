@@ -16,6 +16,12 @@ const TextConstants = {
     ERRORS: {
         FETCHING_ERROR: 'Failed to fetch data from the API',
         ERROR: 'Error'
+    },
+    WIN: {
+        CONGRATULATIONS: 'Congratulations! You won!'
+    },
+    GAME_OVER: {
+            GAME_OVER: 'Sorry, you lost. Better luck next time.'
     }
 }
 

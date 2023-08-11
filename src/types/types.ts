@@ -21,3 +21,7 @@ export interface IAnswersListProps {
 export interface IGuessFormProps {
     onGuess: (guess: number) => void;
 }
+
+export interface IResultBoxProps {
+    userAnswers: IUserAnswer[];
+}

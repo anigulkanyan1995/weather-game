@@ -2,7 +2,17 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 20px;
+
+  & > div {
+    flex: 0 0 calc(50% - 30px);
+    margin-bottom: 30px;
+  }
+}
+
+.resultContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 
   & > div {
     flex: 0 0 calc(50% - 30px);
@@ -17,5 +27,9 @@
 
 .guessFormContainer {
   flex: 0 0 calc(50% - 30px);
-  margin-bottom: 20px
+  margin-bottom: 20px;
+  background-color: #FFEEBB;
+  border: 0.5px solid black;
+  border-radius: 4px;
+  padding: 30px;
 }

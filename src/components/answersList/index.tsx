@@ -4,7 +4,7 @@ import {IAnswersListProps} from "../../types/types";
 
 const AnswersList: React.FC<IAnswersListProps> = ({ userAnswers, cities }) => {
     return (
-        <div>
+        <div style={{backgroundColor: '#FFEEBB'}}>
             <h2>{TextConstants.ANSWERS_LIST.YOUR_ANSWERS}</h2>
             {cities.map((city, index) => (
                 <div key={index}>
