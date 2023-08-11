@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import TextConstants from "../../constants/TextConstants";
-import {IGuessFormProps} from "../../types/types";
+import TextConstants from '../../constants/TextConstants';
+import { IGuessFormProps } from '../../types/types';
 
 const GuessForm: React.FC<IGuessFormProps> = ({ onGuess }) => {
     const [guess, setGuess] = useState<number | ''>('');
+    const [submittedGuess, setSubmittedGuess] = useState<number | ''>('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (guess !== '' && typeof guess === 'number') {
             onGuess(guess);
+            setSubmittedGuess(guess);
             setGuess('');
         }
     };
@@ -18,10 +20,11 @@ const GuessForm: React.FC<IGuessFormProps> = ({ onGuess }) => {
             <input
                 type="number"
                 placeholder={TextConstants.GUESS_FORM.ENTER_YOUR_GUESS}
-                value={guess}
+                value={submittedGuess !== '' ? submittedGuess : guess}
                 onChange={(e) => setGuess(Number(e.target.value))}
+                disabled={submittedGuess !== ''}
             />
-            <button type="submit">
+            <button type="submit" disabled={submittedGuess !== ''}>
                 {TextConstants.GUESS_FORM.SUBMIT_GUESS}
             </button>
         </form>

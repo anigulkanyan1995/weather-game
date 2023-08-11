@@ -11,7 +11,6 @@ import ResultBox from '../resultBox';
 const Game = () => {
     const [cities, setCities] = useState<ICity[]>(initialCities);
     const [userAnswers, setUserAnswers] = useState<IUserAnswer[]>([]);
-    const [isFinal, setIsFinal] = useState(false);
 
     const handleGuess = async (guess: number, cityIndex: number) => {
         if (userAnswers.length < 5) {
@@ -47,7 +46,6 @@ const Game = () => {
     useEffect(() => {
         console.log(userAnswers, 'hhh');
     }, [userAnswers]);
-
 
     return (
         <div className={userAnswers.length === 5 ? 'resultContainer' : 'gameContainer'}>
