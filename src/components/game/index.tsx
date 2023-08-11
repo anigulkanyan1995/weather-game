@@ -49,7 +49,7 @@ const Game = () => {
             {userAnswers.length === 5 ? (
                 <ResultBox userAnswers={userAnswers} />
             ) : (
-                <div>
+                <div className="flex-container">
                     <div className="guessFormContainer">
                         <h2>{TextConstants.GUESS_FORM.GUESS_TITLE}</h2>
                         {cities.map((city) => (

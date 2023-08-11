@@ -12,7 +12,7 @@ const AnswersList: React.FC<IAnswersListProps> = ({ userAnswers, cities }) => {
                 const userAnswer = userAnswers.find((answer) => answer.id === city.id);
                 return (
                     <div key={city.id}>
-                        <h3>{city.name}</h3>
+                        <h3 style={{marginTop: '3px'}}>{city.name}</h3>
                         <p>Actual Temperature: {city.actualTemp !== null ? `${city.actualTemp}°C` : '---'}</p>
                         {userAnswer && (
                             <p>{TextConstants.GUESS_FORM.YOUR_GUESS} {userAnswer.userGuess}°C</p>

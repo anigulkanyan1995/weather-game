@@ -9,3 +9,9 @@
   background-color: #9a9a9a;
   cursor: pointer;
 }
+
+  @media (max-width: 768px) {
+    .formInput {
+      margin-bottom: 10px;
+    }
+  }
